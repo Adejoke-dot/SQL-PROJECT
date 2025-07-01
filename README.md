@@ -54,14 +54,16 @@ This is where we include some basic line of codes or used during analysis.
    GROUP BY REGION
    ORDER BY [TOTAL SALES] DESC
 
-ANSWER: The top 3 regions in terms of sales are; WEST,ONTARIO AND PRARIE while the Bottom 3 are NUNAVUT, NORTHWEST TERITORIES AND YUKON.
+ANSWER: 1. The top 3 regions in terms of sales are; WEST,ONTARIO AND PRARIE
+ 2. the Bottom 3 are NUNAVUT, NORTHWEST TERITORIES AND YUKON.
+
 
 3. What were the total sales of appliances in Ontario?
 ``` sql
- SELECT PRODUCT_SUB_CATEGORY,SUM(SALES) AS [TOTAL SALES]
+SELECT PRODUCT_SUB_CATEGORY,SUM(SALES) AS [TOTAL SALES]
    FROM [dbo].[KMS Sql Case Study (1)]
-   WHERE REGION = 'ONTARIO'
-   GROUP BY PRODUCT_SUB_CATEGORY
+WHERE REGION = 'ONTARIO'
+GROUP BY PRODUCT_SUB_CATEGORY
 
 ANSWER: Total sales of appliances in ONTARIO is 202346.839630127.
 
