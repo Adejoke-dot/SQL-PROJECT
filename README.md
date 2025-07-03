@@ -1,5 +1,6 @@
 # SQL-PROJECT
 This is the solution to case study Two: DSA Project.
+
 ## Project Topic: Kultra Mega Store Inventory
 
 ### Project overview
@@ -25,6 +26,25 @@ The primary source of Data used here is Data Sale.csv and this is an open source
 In the initial phase of the Data cleaning and preparations, we perform the following action; 
 
 Data loading, inspection, handling missing variables, data cleaning and formatting.
+
+### Data Discription
+
+Dataset Description:
+
+The dataset contains transactional data from a mega store and includes the following fields:
+- Order Quality
+-	Shipping Cost
+-	Customer Name
+-	Region
+-	Product Category e.t.c
+
+### Methodology:
+
+Step 1: Importing Data
+-	Loaded data from an Excel spreadsheet into SQL.
+-	Used SQL to clean (standardized formats, fixed data types, join files).
+
+
 
 ### Exploratory Data Analysis
 
@@ -143,6 +163,12 @@ ANSWER:
 10. Sheri Gordon	Corporate
 
 11. If the delivery truck is the most economical but the slowest shipping method and Express Air is the fastest but the most expensive one, do you think the company appropriately spent shipping costs based on the Order Priority? Explain your answer.
+``` sql
+SELECT order_priority,sales,order_quantity,ship_mode,shipping_cost,
+  COUNT (*) AS [total order]
+  FROM [dbo].[KMS Sql Case Study (1)]
+  GROUP BY order_priority,sales,order_quantity,ship_mode,shipping_cost
+  ORDER BY order_priority, [total order] ASC
 ANSWER: yes
 
 ### Report
