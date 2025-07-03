@@ -1,5 +1,5 @@
 # SQL-PROJECT
-This is the solution to case study Two: DSA Project.
+This is the solution to Case Study Two: DSA Project.
 
 ## Project Topic: Kultra Mega Store Inventory
 
@@ -10,7 +10,7 @@ The database includes multiple related tables with primary and foreign keys to e
 
 ### Data Sources
 
-The primary source of Data used here is Data Sale.csv and this is an open source data that can be freely downloaded from an open source online such as kaggle.
+The primary source of data used here is Data Sale.csv and this is an open source data that can be freely downloaded from an open source online such as kaggle.
 
 ### Tools Used
 
@@ -42,16 +42,24 @@ The dataset contains transactional data from a mega store and includes the follo
 
 Step 1: Importing Data
 -	Loaded data from an Excel spreadsheet into SQL.
--	Used SQL to clean (standardized formats, fixed data types, join files).
+-	Used SQL to clean (standardized formats, fixed data types).
 
+Step 2: Data Modeling
 
-
+-	Created relationships between files (e.g., KMS case study ↔ order_status).
+-	Used commands to solve problems:
+  -	CREATE
+  -	SELECT
+  -	ORDER BY
+  -	GROUP BY
+  -	JOIN
+  -	
 ### Exploratory Data Analysis
 
 EDA involved the exploring of the data to answer some questions about the data such as;
   1. Which product category had the highest sales?
   2. What are the Top 3 and Bottom 3 regions in terms of sales?
-  3. What were the total sales of appliances in Ontario?
+  3. What were the total sales of appliances in Ontario? e.t.c
      
 ### Data Analysis
 
@@ -116,7 +124,8 @@ SELECT Customer_Segment,Product_Sub_Category,Customer_Name,SUM(Sales) AS [TOTAL 
    FROM [dbo].[KMS Sql Case Study (1)]
 GROUP BY Customer_Segment,Product_Sub_Category,Customer_Name
 ORDER BY [TOTAL SALES] DESC
-ANSWER: Emily phan and the product they buy is office machines.
+
+ANSWER: Emily phan is the most valuable customer and the product he purchase are office machines.
 
 7. Which small business customer had the highest sales?
 ``` sql
@@ -126,6 +135,7 @@ WHERE Customer_Segment = 'SMALL BUSINESS'
 ORDER BY SALES DESC
 
 ANSWER: Dennis kane
+
 8. Which Corporate Customer placed the most number of orders in 2009 – 2012?
 ``` sql
 SELECT TOP 1 *
@@ -134,14 +144,14 @@ WHERE Customer_Segment = 'CORPORATE'
 ORDER BY Order_Quantity DESC
 ANSWER: Barry weirich
 
-9. Which consumer customer was the most profi table one?
+9. Which consumer customer was the most profitable one?
 ``` sql
 SELECT TOP 1 *
    FROM [dbo].[KMS Sql Case Study (1)]
 WHERE Customer_Segment = 'CONSUMER'
 ORDER BY Profit DESC
 
-ANSWER;Emily phan
+ANSWER; Emily phan
 
 10. Which customer returned items, and what segment do they belong to?
 ``` sql
@@ -164,13 +174,47 @@ ANSWER:
 
 11. If the delivery truck is the most economical but the slowest shipping method and Express Air is the fastest but the most expensive one, do you think the company appropriately spent shipping costs based on the Order Priority? Explain your answer.
 ``` sql
-SELECT order_priority,sales,order_quantity,ship_mode,shipping_cost,
+SELECT order_priority,sales,order_quantity,ship_mode,shipping_cost
   COUNT (*) AS [total order]
   FROM [dbo].[KMS Sql Case Study (1)]
   GROUP BY order_priority,sales,order_quantity,ship_mode,shipping_cost
   ORDER BY order_priority, [total order] ASC
-ANSWER: yes
+
+ANSWER: Logistics Priority Policy
+Critical and High Priority Goods
+- Must be shipped via Express Air.
+- Any other mode is considered wasteful.
+
+Medium Priority Goods
+- Must be shipped via Regular delivery.
+- Deviation constitutes resource misallocation.
+
+Low Priority Goods
+- Must be shipped via Standard Delivery (ground or equivalent).
+- Use of faster methods is not justified.
+
+Unspecified Priority Orders
+- Should be grouped separately under "Priority Not Specified" for further review.
+ Do not assign a delivery method until properly classified.
 
 ### Report
 
+-	The West region had the highest sales but lower profit margins due to high discounts.
+- Emily phan is the most valuable customer and the product he purchase are office machines.
+-	Technology products contributed the most to revenue.
+
+### Benefits of Using Power BI in this Project:
+-	User-friendly Interface.
+-	Real-time Data Refresh and scheduled updates
+- Efficient data retrieval and manipulation.
+- Strong data integrity.
+
+### Challenges Faced:
+
+- Database execution can sometimes be challenging.
+- Not scalable enough, especially horizontally.
+- Lack of decentralisation and flexibility. 
+
+### Conclusion:
+This project demonstrated how SQL can transform raw sales data into meaningful business insights. The sales team can monitor performance, discover opportunities, and make data-driven decisions.
 
