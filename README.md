@@ -65,7 +65,7 @@ SELECT PRODUCT_SUB_CATEGORY,SUM(SALES) AS [TOTAL SALES]
 WHERE REGION = 'ONTARIO'
 GROUP BY PRODUCT_SUB_CATEGORY
 
-ANSWER: Total sales of appliances in ONTARIO is 202346.839630127.
+ANSWER: Total sales of appliances in ONTARIO is 202346.8400000000.
 
 4. Advise the management of KMS on what to do to increase the revenue from the bottom 10 customers.
 
