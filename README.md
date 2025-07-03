@@ -14,10 +14,10 @@ The primary source of data used here is Data Sale.csv and this is an open source
 
 ### Tools Used
 
-- Ms Excel.
+- Microsoft Excel.
   1. For Data collection.
   2. For Data Cleaning.
-- SQL Server.
+- Structured Query Language Server.
   1. For Querying.
   2. For Data Analysis.
      
